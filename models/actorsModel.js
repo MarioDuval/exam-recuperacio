@@ -35,6 +35,9 @@ class ActorsModel {
         
         // Añadir el códgio ....
         
+        const actors = this.getActorsById(req.id);
+        actors.actors.push(req.value);
+        return req;
 
     }
 
@@ -51,7 +54,7 @@ class ActorsModel {
         let movies=[];
 
        // Añadir el códgio ....
-      
+       movies = this.getActorsById(req.id);
 
         return movies;
     }

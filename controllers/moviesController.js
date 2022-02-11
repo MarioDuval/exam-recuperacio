@@ -141,19 +141,25 @@ const getMoviesFromActor = (data_movie) => {
     let movies = [];
 
     // Añadir el códgio ....
+    
+    movies = moviesModel.getMovieBy(data_movie.req);
 
+    movies.forEach(element => {
+        element.actors = actorsModel.getIDFromActor(element.id).actors;
+    });
+    
     
     data_movie.res = movies;
 
 };
 
 export default {
-    getAllMovies,
-    getMovieById,
-    removeMovie,
-    createMovie,
-    updateMovie,
-    getMovieBy,
+    // getAllMovies,
+    // getMovieById,
+    // removeMovie,
+    // createMovie,
+    // updateMovie,
+    // getMovieBy,
     addActors,
     getMoviesFromActor
 }
