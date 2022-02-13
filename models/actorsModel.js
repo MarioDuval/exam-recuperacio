@@ -31,14 +31,12 @@ class ActorsModel {
         return req;
     }
 
-    addActorToMovie(req) {
-        
-        // Añadir el códgio ....
-        
+    addActorToMovie(req) { 
+        // Añadir el código ....   
         const actors = this.getActorsById(req.id);
         actors.actors.push(req.value);
-        return req;
 
+        return req;
     }
 
     updateActors(req) {
@@ -53,8 +51,17 @@ class ActorsModel {
     getIDFromActor(req) {
         let movies=[];
 
-       // Añadir el códgio ....
-       movies = this.getActorsById(req.id);
+
+       // Añadir el código ....
+       const elem = {key:'actors' , value: req.value};
+        if (typeof req.value == 'undefined') {
+            throw new Error('Ups! Error Actor no existe');
+        }
+
+        this.actors.forEach(element => {
+            if (element.actors.findIndex(actor => actor == req.value) != -1)
+                movies[movies.length] = element;
+        })
 
         return movies;
     }

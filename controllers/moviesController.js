@@ -2,6 +2,8 @@ import moviesModel from '../models/moviesModel.js';
 import actorsModel from '../models/actorsModel.js';
 import moviePojo from '../models/moviePojo.js';
 import actorPojo from '../models/actorPojo.js';
+import actors from '../models/actorPojo.js';
+
 
 
 /*
@@ -138,28 +140,28 @@ const addActors = (data_movie) => {
 }
 // TODO: Nueva API devuelve todas las películas donde participa un actor
 const getMoviesFromActor = (data_movie) => {
+    data_movie.clear();
     let movies = [];
+    movies = actorsModel.getIDFromActor(data_movie.req);
 
-    // Añadir el códgio ....
-    
-    movies = moviesModel.getMovieBy(data_movie.req);
+    // movies = moviesModel.getMovieBy(data_movie.req);
 
-    movies.forEach(element => {
-        element.actors = actorsModel.getIDFromActor(element.id).actors;
-    });
-    
+    // this.movies.forEach(element => {
+    //     if (element.actors.findIndex(actor => actor == req.value) != -1)
+    //         movies[movies.length] = element;
+    // })
     
     data_movie.res = movies;
 
 };
 
 export default {
-    // getAllMovies,
-    // getMovieById,
-    // removeMovie,
-    // createMovie,
-    // updateMovie,
-    // getMovieBy,
+    getAllMovies,
+    getMovieById,
+    removeMovie,
+    createMovie,
+    updateMovie,
+    getMovieBy,
     addActors,
     getMoviesFromActor
 }
