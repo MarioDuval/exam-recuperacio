@@ -51,17 +51,18 @@ class ActorsModel {
     getIDFromActor(req) {
         let movies=[];
 
-
        // Añadir el código ....
        const elem = {key:'actors' , value: req.value};
+       
         if (typeof req.value == 'undefined') {
             throw new Error('Ups! Error Actor no existe');
-        }
+        };
 
         this.actors.forEach(element => {
-            if (element.actors.findIndex(actor => actor == req.value) != -1)
-                movies[movies.length] = element;
-        })
+            if (element.actors.findIndex(actor => actor == req.value) != -1) {
+                movies[movies.length] = element;  
+            }       
+        });
 
         return movies;
     }

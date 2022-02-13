@@ -3,6 +3,7 @@ import actorsModel from '../models/actorsModel.js';
 import moviePojo from '../models/moviePojo.js';
 import actorPojo from '../models/actorPojo.js';
 import actors from '../models/actorPojo.js';
+import movie from '../models/moviePojo.js';
 
 
 
@@ -138,15 +139,17 @@ const addActors = (data_movie) => {
     getMovieById(data_movie);
 
 }
+
 // TODO: Nueva API devuelve todas las películas donde participa un actor
 const getMoviesFromActor = (data_movie) => {
     data_movie.clear();
     let movies = [];
-    movies = actorsModel.getIDFromActor(data_movie.req);
     
+    movies = actorsModel.getIDFromActor(data_movie.req);
+
     data_movie.res = movies;
 
-};
+}
 
 export default {
     getAllMovies,
