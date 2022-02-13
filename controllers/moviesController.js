@@ -143,13 +143,6 @@ const getMoviesFromActor = (data_movie) => {
     data_movie.clear();
     let movies = [];
     movies = actorsModel.getIDFromActor(data_movie.req);
-
-    // movies = moviesModel.getMovieBy(data_movie.req);
-
-    // this.movies.forEach(element => {
-    //     if (element.actors.findIndex(actor => actor == req.value) != -1)
-    //         movies[movies.length] = element;
-    // })
     
     data_movie.res = movies;
 
