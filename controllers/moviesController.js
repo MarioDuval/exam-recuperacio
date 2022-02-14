@@ -123,6 +123,7 @@ const getMovieBy = (data_movie) => {
         element.actors = actorsModel.getActorsById(element.id).actors;
 
     });
+
     data_movie.res = movies;
 
 }
@@ -144,8 +145,12 @@ const addActors = (data_movie) => {
 const getMoviesFromActor = (data_movie) => {
     data_movie.clear();
     let movies = [];
-    
+
     movies = actorsModel.getIDFromActor(data_movie.req);
+
+    const movie = moviesModel.getMovies(movies);
+
+    movies.push(movie);
 
     data_movie.res = movies;
 
